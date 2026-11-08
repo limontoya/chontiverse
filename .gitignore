@@ -14,7 +14,18 @@ __pycache__/
 [Uu]ser[Ss]ettings/
 
 # Visual Studio Code
-.vscode/
+/chontiverse.code-workspace
+.vscode/*.local.json
+
+# Editor temporary files
+*~
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+.#*
+\#*#
 
 # Sistema operativo
 .DS_Store
