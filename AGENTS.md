@@ -83,6 +83,40 @@ Mantener comparables la política aprendida y la aleatoria bajo las mismas regla
 
 Favorecer la solución más sencilla que satisfaga las especificaciones. No añadir abstracciones, servicios o dependencias innecesarios. Justificar cualquier dependencia nueva, sus alternativas y su coste de mantenimiento antes de incorporarla.
 
+## Principios de diseño, calidad y mantenimiento
+
+### SOLID con proporcionalidad
+
+- **SRP:** delimitar la responsabilidad de cada componente; separar simulación, políticas, entrenamiento, evaluación y presentación.
+- **OCP:** extender mediante contratos estables cuando exista una necesidad real de variación.
+- **LSP:** las implementaciones intercambiables deben respetar los contratos y el comportamiento esperado de su abstracción.
+- **ISP:** preferir interfaces pequeñas y específicas cuando aporten valor; evitar interfaces monolíticas.
+- **DIP:** los componentes de alto nivel dependen de abstracciones adecuadas, no directamente de Unity ni de una biblioteca concreta de RL.
+
+No crear clases, interfaces, patrones ni capas innecesarias para demostrar SOLID.
+
+### Clean Code
+
+Usar nombres descriptivos y consistentes, funciones pequeñas y responsabilidades claras. Evitar duplicación innecesaria y mantener una estructura comprensible. Evitar números mágicos y configuraciones experimentales ocultas. Documentar decisiones y contratos sin repetir mediante comentarios lo que expresa el código. Respetar las convenciones de cada lenguaje.
+
+### Pruebas y calidad
+
+Derivar pruebas de los criterios de aceptación aprobados. Priorizar pruebas unitarias de simulación y añadir pruebas de integración cuando existan contratos entre componentes. Cubrir casos válidos, inválidos y terminales, con pruebas deterministas cuando sea posible. Aplicar el registro de semillas, configuraciones y versiones de Reproducibilidad y verificación y la comunicación veraz de resultados de Disciplina de trabajo.
+
+### Refactorización controlada
+
+Mejorar la estructura interna sin alterar el comportamiento observable. Disponer de pruebas que protejan el comportamiento antes de refactorizaciones relevantes y ejecutarlas después. Mantener cambios acotados y revisables; justificar beneficios y riesgos. No mezclar grandes refactorizaciones con funcionalidades nuevas sin justificación. Si cambia el comportamiento o los requisitos, tratarlo como cambio funcional: actualizar primero especificaciones y pruebas conforme al flujo Spec-Driven Development.
+
+### Arquitectura evolutiva
+
+El MVP del TFM debe ser pequeño, completo y funcional. Mantener la simulación independiente de la presentación. Unity y C# están aprobados para el videojuego 2D; la tecnología de entrenamiento y su integración con RL siguen pendientes. Facilitar la sustitución de una política aleatoria por una entrenada mediante contratos compatibles.
+
+Preparar puntos de extensión razonables sin implementar anticipadamente navegación, cambios dinámicos de escondite ni multijugador. Aplicar YAGNI, KISS y DRY con criterio, respetando la sencillez y el registro de ADR establecidos en Arquitectura y dependencias.
+
+### Responsabilidad de Codex
+
+Aplicar Fuentes de verdad y el flujo Spec-Driven Development: consultar especificaciones aprobadas antes de implementar, no inventar requisitos ni convertir propuestas en decisiones aprobadas y señalar contradicciones o ambigüedades antes de programar. Justificar refactorizaciones conforme a esta sección y respetar el alcance autorizado y las restricciones de commits y push de Disciplina de trabajo.
+
 ## Reproducibilidad y verificación
 
 Especificar el protocolo experimental antes de ejecutar la evaluación destinada a sustentar conclusiones: métricas, condiciones, semillas, número de ejecuciones y episodios, presupuesto y criterio de comparación. No inventar sus valores si están pendientes.
